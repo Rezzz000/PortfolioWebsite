@@ -31,15 +31,48 @@
           <li><a href="#education" class="nav-link">Education</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <a href="assets/cv.docx" download class="nav-cv-btn" aria-label="Download CV">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-          <span>Access CV</span>
-        </a>
+        <div class="cv-dropdown-wrapper">
+          <button type="button" class="nav-cv-btn cv-dropdown-trigger" id="nav-cv-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Access CV options">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Access CV</span>
+            <svg class="cv-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="cv-dropdown-menu" role="menu" aria-labelledby="nav-cv-trigger">
+            <a href="assets/Raden_Reyski_Azka_Rakhmadya_CV.pdf" target="_blank" rel="noopener noreferrer" class="cv-dropdown-item" role="menuitem">
+              <div class="cv-item-icon cv-icon-pdf">PDF</div>
+              <div class="cv-item-info">
+                <span class="cv-item-title">PDF Document</span>
+                <span class="cv-item-subtitle">Open &amp; view in browser</span>
+              </div>
+              <svg class="cv-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="assets/Raden_Reyski_Azka_Rakhmadya_CV.docx" download="Raden_Reyski_Azka_Rakhmadya_CV.docx" class="cv-dropdown-item" role="menuitem">
+              <div class="cv-item-icon cv-icon-word">DOCX</div>
+              <div class="cv-item-info">
+                <span class="cv-item-title">Word Document</span>
+                <span class="cv-item-subtitle">Download &amp; open with Word</span>
+              </div>
+              <svg class="cv-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">
           <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -151,9 +184,9 @@
       <div class="projects-grid">
         <article class="project-card">
           <div class="project-content">
-            <h3 class="project-title">Project Template</h3>
+            <h3 class="project-title">Portfolio Website</h3>
             <p class="project-description">
-              A minimalist web application focused on productivity and clear information architecture.
+              A personal portfolio website with a minimalist dark/light design, smooth animations, and sections for projects, skills, education, and contact.
             </p>
             <div class="project-meta">
               <span class="project-tag">HTML</span>
@@ -161,7 +194,7 @@
               <span class="project-tag">JavaScript</span>
             </div>
             <div class="project-actions">
-              <a href="https://github.com/Rezzz000" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/Rezzz000/PortfolioWebsite" target="_blank" rel="noopener noreferrer"
                 class="btn btn-secondary project-btn">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -171,7 +204,8 @@
                 </svg>
                 <span>GitHub</span>
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary project-btn">
+              <a href="https://reyskiazka.netlify.app" target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary project-btn">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -451,15 +485,48 @@
             </svg>
             <span>GitHub</span>
           </a>
-          <a href="assets/cv.docx" download class="btn btn-primary social-btn">
+        <div class="cv-dropdown-wrapper cv-dropdown-contact">
+          <button type="button" class="btn btn-primary social-btn cv-dropdown-trigger" id="contact-cv-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Access CV options">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
             <span>Access CV</span>
-          </a>
+            <svg class="cv-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="cv-dropdown-menu cv-dropdown-menu-contact" role="menu" aria-labelledby="contact-cv-trigger">
+            <a href="assets/Raden_Reyski_Azka_Rakhmadya_CV.pdf" target="_blank" rel="noopener noreferrer" class="cv-dropdown-item" role="menuitem">
+              <div class="cv-item-icon cv-icon-pdf">PDF</div>
+              <div class="cv-item-info">
+                <span class="cv-item-title">PDF Document</span>
+                <span class="cv-item-subtitle">Open &amp; view in browser</span>
+              </div>
+              <svg class="cv-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="assets/Raden_Reyski_Azka_Rakhmadya_CV.docx" download="Raden_Reyski_Azka_Rakhmadya_CV.docx" class="cv-dropdown-item" role="menuitem">
+              <div class="cv-item-icon cv-icon-word">DOCX</div>
+              <div class="cv-item-info">
+                <span class="cv-item-title">Word Document</span>
+                <span class="cv-item-subtitle">Download &amp; open with Word</span>
+              </div>
+              <svg class="cv-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
         </div>
       </div>
     </section>

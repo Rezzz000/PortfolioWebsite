@@ -653,4 +653,60 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Access CV Dropdown Menus (PDF & Word options)
+  const cvDropdowns = document.querySelectorAll(".cv-dropdown-wrapper");
+
+  cvDropdowns.forEach((wrapper) => {
+    const trigger = wrapper.querySelector(".cv-dropdown-trigger");
+    const menu = wrapper.querySelector(".cv-dropdown-menu");
+    if (!trigger || !menu) return;
+
+    function toggleMenu(forceState) {
+      const willOpen = forceState !== undefined ? forceState : !wrapper.classList.contains("open");
+
+      if (willOpen) {
+        cvDropdowns.forEach((other) => {
+          if (other !== wrapper) {
+            other.classList.remove("open");
+            const otherTrigger = other.querySelector(".cv-dropdown-trigger");
+            if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+
+      wrapper.classList.toggle("open", willOpen);
+      trigger.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    }
+
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    const items = menu.querySelectorAll(".cv-dropdown-item");
+    items.forEach((item) => {
+      item.addEventListener("click", () => {
+        toggleMenu(false);
+      });
+    });
+
+    wrapper.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        toggleMenu(false);
+        trigger.focus();
+      }
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    cvDropdowns.forEach((wrapper) => {
+      if (!wrapper.contains(e.target)) {
+        wrapper.classList.remove("open");
+        const trigger = wrapper.querySelector(".cv-dropdown-trigger");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
 });
