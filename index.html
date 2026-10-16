@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Minimalist personal portfolio">
+  <title>Reyski Azka - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="#intro" class="nav-logo">ReyskiAzka</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="assets/cv.docx" download class="nav-cv-btn" aria-label="Download CV">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>Access CV</span>
+        </a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Vertical Dot Slider Navigation -->
+  <aside class="dot-nav" id="dot-nav" aria-label="Section dots navigation">
+    <div class="dot-track" id="dot-track" title="Slide or click to navigate sections">
+      <ul class="dot-list" id="dot-list">
+        <li class="dot-item active" data-section="intro">
+          <a href="#intro" class="dot-link" aria-label="Navigate to Intro section">
+            <span class="dot-label">Intro</span>
+            <span class="dot-indicator"></span>
+          </a>
+        </li>
+        <li class="dot-item" data-section="about">
+          <a href="#about" class="dot-link" aria-label="Navigate to About section">
+            <span class="dot-label">About</span>
+            <span class="dot-indicator"></span>
+          </a>
+        </li>
+        <li class="dot-item" data-section="projects">
+          <a href="#projects" class="dot-link" aria-label="Navigate to Projects section">
+            <span class="dot-label">Projects</span>
+            <span class="dot-indicator"></span>
+          </a>
+        </li>
+        <li class="dot-item" data-section="skills">
+          <a href="#skills" class="dot-link" aria-label="Navigate to Skills section">
+            <span class="dot-label">Skills</span>
+            <span class="dot-indicator"></span>
+          </a>
+        </li>
+        <li class="dot-item" data-section="education">
+          <a href="#education" class="dot-link" aria-label="Navigate to Education section">
+            <span class="dot-label">Education</span>
+            <span class="dot-indicator"></span>
+          </a>
+        </li>
+        <li class="dot-item" data-section="contact">
+          <a href="#contact" class="dot-link" aria-label="Navigate to Contact section">
+            <span class="dot-label">Contact</span>
+            <span class="dot-indicator"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="container">
+    <!-- Intro Section Track -->
+    <div class="intro-track" id="intro-track">
+      <section id="intro" class="section intro">
+        <div class="intro-content">
+          <h1 class="hero-title">Hi, I'm Reyski</h1>
+          <p class="hero-description">
+            Computer Science student at Binus University.
+          </p>
+          <div class="button-group">
+            <a href="#projects" class="btn btn-primary">View My Projects</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+        <a href="#about" class="scroll-hint" aria-label="Scroll to About">
+          <span>Scroll down</span>
+          <span class="scroll-arrow" aria-hidden="true">&darr;</span>
+        </a>
+      </section>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2 class="section-title">About</h2>
+      <div class="about-container">
+        <div class="about-content">
+          <p class="about-text">
+            Hi, I'm Raden Reyski Azka Rakhmadya, a Computer Science student at BINUS University specializing in Software Engineering.
+          </p>
+          <p class="about-text">
+            I'm focused on full-stack web development while exploring mobile development, cloud services, and machine learning.
+          </p>
+          <p class="about-text">
+            I'm currently looking for an internship opportunity feel free to reach out!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Project Template</h3>
+            <p class="project-description">
+              A minimalist web application focused on productivity and clear information architecture.
+            </p>
+            <div class="project-meta">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Rezzz000" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary project-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary project-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Demo</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Fake News Detection</h3>
+            <p class="project-description">
+              A machine learning project that classifies news articles as real or fake using NLP techniques and supervised learning models.
+            </p>
+            <div class="project-meta">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">Docker</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Rezzz000/FakeNewsDetection" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary project-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">eNVision Web</h3>
+            <p class="project-description">
+              A Human-Computer Interaction project — an accessible web platform designed with usability principles for an enhanced user experience.
+            </p>
+            <div class="project-meta">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Rezzz000/eNVision_web" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary project-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Wuthering Waves Rating Prediction</h3>
+            <p class="project-description">
+              A machine learning project that predicts Wuthering Waves character ratings using data analysis and regression models applied to in-game statistics.
+            </p>
+            <div class="project-meta">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Jupyter Notebook</span>
+              <span class="project-tag">scikit-learn</span>
+              <span class="project-tag">pandas</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Rezzz000/PredictionRatingWuwa" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary project-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="projects-more">
+        <a href="https://github.com/Rezzz000?tab=repositories" target="_blank" rel="noopener noreferrer"
+          class="btn btn-secondary projects-more-btn" aria-label="See more projects on GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+            </path>
+          </svg>
+          <span>See More Projects</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-wrapper">
+        <div class="skills-grid">
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <span class="skill-category-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </span>
+              <h3 class="skill-category-title">Frontend</h3>
+            </div>
+            <ul class="skills-list">
+              <li class="skill-tag">HTML5</li>
+              <li class="skill-tag">CSS3</li>
+              <li class="skill-tag">JavaScript</li>
+              <li class="skill-tag">Tailwind CSS</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <span class="skill-category-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </span>
+              <h3 class="skill-category-title">Backend</h3>
+            </div>
+            <ul class="skills-list">
+              <li class="skill-tag">Node.js</li>
+              <li class="skill-tag">Express.js</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <span class="skill-category-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </span>
+              <h3 class="skill-category-title">Databases</h3>
+            </div>
+            <ul class="skills-list">
+              <li class="skill-tag">MySQL</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <span class="skill-category-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </span>
+              <h3 class="skill-category-title">Programming</h3>
+            </div>
+            <ul class="skills-list">
+              <li class="skill-tag">C</li>
+              <li class="skill-tag">C++</li>
+              <li class="skill-tag">Python</li>
+            </ul>
+          </div>
+
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <span class="skill-category-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+              </span>
+              <h3 class="skill-category-title">Tools &amp; DevOps</h3>
+            </div>
+            <ul class="skills-list">
+              <li class="skill-tag">Git &amp; GitHub</li>
+              <li class="skill-tag">Docker</li>
+              <li class="skill-tag">VS Code</li>
+              <li class="skill-tag">Figma</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <h2 class="section-title">Education</h2>
+      <div class="education-list">
+        <div class="education-card">
+          <div class="education-header">
+            <div>
+              <h3 class="education-degree">Bachelor of Computer Science, Software Engineering</h3>
+              <div class="education-institution">Binus University</div>
+            </div>
+            <span class="education-period">2024 - Present</span>
+          </div>
+          <p class="education-description">
+            Specializing in Software Engineering with focus on the full software development lifecycle - from
+            requirements and design to implementation, testing, and deployment. Core coursework covers Software Design
+            Patterns, Agile Development, Algorithm Design, Database Technology, OOP, Human-Computer Interaction, Mobile
+            Development, and Software Quality Assurance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <p class="contact-intro">
+        Feel free to reach out for collaborations, project inquiries, or opportunities.
+      </p>
+
+      <div class="contact-card">
+        <div class="email-box">
+          <div class="email-display">
+            <span class="email-label">Email</span>
+            <a href="mailto:reyskiazka@gmail.com" class="email-address" id="email-address">reyskiazka@gmail.com</a>
+          </div>
+          <button id="copy-email-btn" class="btn btn-secondary copy-btn" aria-label="Copy email address"
+            title="Copy to clipboard">
+            <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="copy-text">Copy Email</span>
+          </button>
+        </div>
+
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/raden-reyski-azka-rakhmadya-a6a37a325/" target="_blank"
+            rel="noopener noreferrer" class="btn btn-secondary social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/Rezzz000" target="_blank" rel="noopener noreferrer"
+            class="btn btn-secondary social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+              </path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="assets/cv.docx" download class="btn btn-primary social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            <span>Access CV</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-text">&copy; 2026 Raden Reyski Azka Rakhmadya. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#intro" id="back-to-top-link" class="footer-link back-to-top" aria-label="Back to top">
+          <span>Back to top</span>
+          <span aria-hidden="true">&uarr;</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
