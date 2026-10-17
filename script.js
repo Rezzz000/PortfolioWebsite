@@ -1,16 +1,13 @@
-// Portfolio Application Logic
 document.addEventListener("DOMContentLoaded", () => {
   const sections = Array.from(document.querySelectorAll("section[id]"));
   const navLinks = document.querySelectorAll(".nav-link");
   const header = document.querySelector(".header");
 
-  // Dynamic Scroll Squish: Intro section squishes from full-screen to compact size as you scroll down
   const introTrack = document.getElementById("intro-track");
   const introSection = document.getElementById("intro");
   const introContent = document.querySelector(".intro-content");
   const scrollHint = document.querySelector(".scroll-hint");
 
-  // Vertical Dot Slider Navigation Elements
   const dotNav = document.getElementById("dot-nav");
   const dotTrack = document.getElementById("dot-track");
   const dotItems = document.querySelectorAll(".dot-item");
@@ -38,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function calculateSquishMetrics() {
     const headerHeight = header ? header.offsetHeight : 65;
     const fullHeight = Math.max(300, stableViewportHeight - headerHeight);
-    // Compact size reflects natural content height
     const naturalContentHeight = introContent ? introContent.offsetHeight : 190;
     const compactHeight = Math.max(220, naturalContentHeight + 80);
     const squishDistance = Math.max(80, fullHeight - compactHeight);
@@ -59,15 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function triggerHeroFadeIn() {
     if (!introContent) return;
     introContent.classList.remove("fade-in");
-    // Trigger DOM reflow so restarting the class replays the animation
     void introContent.offsetWidth;
     introContent.classList.add("fade-in");
   }
 
-  // Trigger hero text & buttons fade-in on initial page load
   triggerHeroFadeIn();
 
-  // Dot Selection Appearance Controller (750ms clean fade)
   function showDotSelection(sectionId, autoFade = true) {
     if (!sectionId) return;
     activeDotSection = sectionId;
@@ -105,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Unified Active Section State Setter (prevents unnecessary re-triggers)
   function setActiveSection(id, forceUpdate = false) {
     if (!id) return;
     if (!forceUpdate && id === currentActiveSection) {
@@ -113,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     currentActiveSection = id;
 
-    // 1. Update Header Navigation Links
     navLinks.forEach((link) => {
       const href = link.getAttribute("href");
       if (href === `#${id}`) {
@@ -123,30 +114,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // 2. Update Vertical Dot Slider (reveals label with auto-fade when navigating)
     if (!isSlidingDots) {
       showDotSelection(id, true);
     }
   }
 
-  // Smooth Geometry-Based Section Detection
   function determineActiveSection() {
     const scrollY = window.scrollY || window.pageYOffset || 0;
     const viewportHeight = stableViewportHeight;
     const docHeight = document.documentElement.scrollHeight;
     const headerHeight = header ? header.offsetHeight : 65;
 
-    // 1. Top of page: always Intro
     if (scrollY <= 60) {
       return "intro";
     }
 
-    // 2. Bottom of page reached: always the last section (Contact)
     if (viewportHeight + scrollY >= docHeight - 45) {
       return "contact";
     }
 
-    // 3. Focal line: the natural line of visual focus (~35% down viewport, below sticky header)
     const focalLine = headerHeight + Math.min(280, (viewportHeight - headerHeight) * 0.35);
 
     let focalId = null;
@@ -165,13 +151,11 @@ document.addEventListener("DOMContentLoaded", () => {
         rect = sec.getBoundingClientRect();
       }
 
-      // Check if section contains focal line (with 1px subpixel tolerance)
       if (rect.top <= focalLine + 1 && rect.bottom >= focalLine - 1) {
         focalId = id;
         break;
       }
 
-      // Calculate distance to focalLine for fallback
       let dist = 0;
       if (rect.top > focalLine) {
         dist = rect.top - focalLine;
@@ -203,7 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollY = window.scrollY || window.pageYOffset || 0;
 
     if (isNavigatingViaLogo) {
-      // While returning to the top via the portfolio logo, keep intro section visible & expanded
       introSection.style.height = `${fullHeight}px`;
       introSection.style.opacity = "1";
       introSection.style.visibility = "visible";
@@ -229,7 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (scrollY >= squishDistance) {
       introSection.style.height = `${compactHeight}px`;
 
-      // Starts to fade as the top collides with the header, fading completely before leaving sight
       const fadeDistance = Math.max(70, Math.min(120, compactHeight * 0.45));
       const exitProgress = Math.min(1, (scrollY - squishDistance) / fadeDistance);
       const introOpacity = Math.max(0, 1 - exitProgress);
@@ -279,7 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollY = window.scrollY || window.pageYOffset || 0;
 
     if (isDesktop || currentWidth !== lastWindowWidth) {
-      // Desktop or genuine orientation/width change — always recalculate.
       lastWindowWidth = currentWidth;
       stableViewportHeight = window.innerHeight;
       updateStableViewportCss();
@@ -287,16 +268,12 @@ document.addEventListener("DOMContentLoaded", () => {
       updateSquish();
       updateActiveSectionOnScroll();
     } else if (scrollY <= 10) {
-      // Mobile same-width resize (address bar show/hide) while AT THE TOP.
-      // Sync metrics to the new height and immediately snap to scrollY=0 to cancel
-      // the browser's scroll-compensation nudge that would otherwise push content down.
       stableViewportHeight = window.innerHeight;
       updateStableViewportCss();
       calculateSquishMetrics();
       updateSquish();
       window.scrollTo({ top: 0, behavior: "instant" });
     }
-    // else: mobile address bar change while scrolled down — ignore to prevent squish shift.
   });
 
   window.addEventListener("orientationchange", () => {
@@ -310,7 +287,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 150);
   });
 
-  // Top Navigation link click handler
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       const href = link.getAttribute("href");
@@ -322,7 +298,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Portfolio logo click -> direct smoothly to the top intro section and fade in hero text & buttons
   const logo = document.querySelector(".nav-logo");
   if (logo) {
     logo.addEventListener("click", (e) => {
@@ -363,7 +338,6 @@ document.addEventListener("DOMContentLoaded", () => {
             isNavigatingViaLogo = false;
             window.removeEventListener("scroll", onLogoScrollArrival);
             if (logoArrivalTimer) clearTimeout(logoArrivalTimer);
-            // Sync stable height to current innerHeight (address bar may still be collapsed)
             stableViewportHeight = window.innerHeight;
             updateStableViewportCss();
             calculateSquishMetrics();
@@ -380,7 +354,6 @@ document.addEventListener("DOMContentLoaded", () => {
           if (onLogoScrollArrival) {
             window.removeEventListener("scroll", onLogoScrollArrival);
           }
-          // Sync stable height to current innerHeight (address bar may still be collapsed)
           stableViewportHeight = window.innerHeight;
           updateStableViewportCss();
           calculateSquishMetrics();
@@ -394,7 +367,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Back to top footer link -> same behavior as the nav logo
   const backToTopLink = document.getElementById("back-to-top-link");
   if (backToTopLink) {
     backToTopLink.addEventListener("click", (e) => {
@@ -435,7 +407,6 @@ document.addEventListener("DOMContentLoaded", () => {
             isNavigatingViaLogo = false;
             window.removeEventListener("scroll", onLogoScrollArrival);
             if (logoArrivalTimer) clearTimeout(logoArrivalTimer);
-            // Sync stable height to current innerHeight (address bar may still be collapsed)
             stableViewportHeight = window.innerHeight;
             updateStableViewportCss();
             calculateSquishMetrics();
@@ -452,7 +423,6 @@ document.addEventListener("DOMContentLoaded", () => {
           if (onLogoScrollArrival) {
             window.removeEventListener("scroll", onLogoScrollArrival);
           }
-          // Sync stable height to current innerHeight (address bar may still be collapsed)
           stableViewportHeight = window.innerHeight;
           updateStableViewportCss();
           calculateSquishMetrics();
@@ -472,7 +442,6 @@ document.addEventListener("DOMContentLoaded", () => {
     lockActiveSectionUntil = Date.now() + (smooth ? 750 : 100);
 
     if (sectionId === "intro") {
-      // Sync stable height to current innerHeight before calculating (address bar may be collapsed)
       stableViewportHeight = window.innerHeight;
       updateStableViewportCss();
       calculateSquishMetrics();
@@ -497,7 +466,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setActiveSection(sectionId, true);
   }
 
-  // Click on dots
   dotItems.forEach((item) => {
     const link = item.querySelector(".dot-link");
     if (link) {
@@ -513,7 +481,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Slider sliding / dragging scrub handler
   function getClosestDotSection(clientY) {
     let closestSection = null;
     let minDistance = Infinity;
@@ -533,7 +500,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (dotTrack) {
     dotTrack.addEventListener("pointerdown", (e) => {
-      // Disallow interactions originating on the label text
       if (e.target && e.target.closest && e.target.closest(".dot-label")) return;
 
       isSlidingDots = true;
@@ -580,12 +546,10 @@ document.addEventListener("DOMContentLoaded", () => {
     dotTrack.addEventListener("pointercancel", stopSliding);
   }
 
-  // Initial calculation on page load
   calculateSquishMetrics();
   updateSquish();
   updateActiveSectionOnScroll();
 
-  // Dark / Light Mode Theme Toggle (Defaults to dark mode)
   const themeToggle = document.getElementById("theme-toggle");
 
   function getActiveTheme() {
@@ -597,7 +561,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       localStorage.setItem("theme", theme);
     } catch (err) {
-      // localStorage may fail in restricted sandboxes
     }
     if (themeToggle) {
       const label = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
@@ -616,7 +579,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Copy Email to Clipboard with instant feedback
   const copyBtn = document.getElementById("copy-email-btn");
   const emailElement = document.getElementById("email-address");
 
@@ -635,7 +597,6 @@ document.addEventListener("DOMContentLoaded", () => {
           if (copyText) copyText.textContent = "Copy Email";
         }, 2000);
       } catch (err) {
-        // Fallback for clipboard API restrictions
         const tempInput = document.createElement("input");
         tempInput.value = email;
         document.body.appendChild(tempInput);
@@ -654,7 +615,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Access CV Dropdown Menus (PDF & Word options)
   const cvDropdowns = document.querySelectorAll(".cv-dropdown-wrapper");
 
   cvDropdowns.forEach((wrapper) => {

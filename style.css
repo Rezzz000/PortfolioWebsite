@@ -1,4 +1,3 @@
-/* Minimalist Design System - Default Dark Mode */
 :root,
 [data-theme="dark"] {
   --bg-color: #111113;
@@ -48,7 +47,6 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Header & Navigation */
 .header {
   border-bottom: 1px solid var(--border-color);
   background-color: var(--header-bg);
@@ -101,7 +99,6 @@ body {
   color: var(--text-main);
 }
 
-/* Navigation Access CV Button */
 .nav-cv-btn {
   display: inline-flex;
   align-items: center;
@@ -128,7 +125,6 @@ body {
   color: var(--btn-primary-text);
 }
 
-/* Access CV Dropdown Menu */
 .cv-dropdown-wrapper {
   position: relative;
   display: inline-flex;
@@ -178,7 +174,6 @@ body {
   visibility: visible;
 }
 
-/* Contact section dropdown positioning */
 .cv-dropdown-menu-contact {
   left: 0;
   right: auto;
@@ -274,7 +269,6 @@ body {
   color: var(--text-main);
 }
 
-/* Theme Toggle Button (Top Right Corner) */
 .theme-toggle {
   background: transparent;
   border: 1px solid var(--border-color);
@@ -294,7 +288,6 @@ body {
   border-color: var(--text-muted);
 }
 
-/* Sun/Moon icon toggle visibility (Dark mode default) */
 .sun-icon {
   display: block;
 }
@@ -311,7 +304,6 @@ body {
   display: block;
 }
 
-/* Vertical Dot Slider Navigation (Center-Right) */
 .dot-nav {
   position: fixed;
   top: auto;
@@ -324,8 +316,7 @@ body {
   user-select: none;
   -webkit-user-select: none;
   pointer-events: none;
-  /* Passes clicks through so it never blocks page content */
-}
+  }
 
 .dot-track {
   display: flex;
@@ -337,8 +328,7 @@ body {
   cursor: pointer;
   position: relative;
   pointer-events: auto;
-  /* Only the dots column captures interactions */
-}
+  }
 
 .dot-list {
   list-style: none;
@@ -377,7 +367,6 @@ body {
   outline: none;
 }
 
-/* Unselected dot (soft and transparent when idle) */
 .dot-indicator {
   width: 6px;
   height: 6px;
@@ -394,7 +383,6 @@ body {
   pointer-events: none;
 }
 
-/* Selected dot when resting (transparent and non-disruptive) */
 .dot-item.active .dot-indicator {
   transform: scale(1.35);
   background-color: var(--text-main);
@@ -403,7 +391,6 @@ body {
   box-shadow: none;
 }
 
-/* Selected dot when actively interacted or during selection flash */
 .dot-item.active.show-label .dot-indicator,
 .dot-nav.is-interacting .dot-item.active .dot-indicator {
   transform: scale(1.7);
@@ -418,7 +405,6 @@ body {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 }
 
-/* Hover effects enabled exclusively on pointer/mouse devices to prevent sticky hover on touch */
 @media (hover: hover) and (pointer: fine) {
   .dot-track:hover .dot-indicator {
     opacity: 0.35;
@@ -450,7 +436,6 @@ body {
   }
 }
 
-/* Dot Label Text: Positioned absolutely to the left of the dots so it NEVER intercepts clicks or expands the track */
 .dot-label {
   position: absolute;
   right: calc(100% + 0.65rem);
@@ -478,7 +463,6 @@ body {
     filter 0.25s ease;
 }
 
-/* Selected section's text: bigger, higher brightness, pure text */
 .dot-item.active.show-label .dot-label {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
@@ -489,14 +473,12 @@ body {
   pointer-events: none !important;
 }
 
-/* Main Container */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem 6rem;
 }
 
-/* Section Common */
 .section {
   padding: 5.5rem 0;
   border-bottom: 1px solid var(--border-color);
@@ -515,13 +497,11 @@ body {
   color: var(--text-main);
 }
 
-/* Intro Section Track */
 .intro-track {
   width: 100%;
   position: relative;
 }
 
-/* Intro / Hero Section (Squishes from 100vh down to compact height on scroll) */
 .intro {
   position: sticky;
   top: 65px;
@@ -540,13 +520,11 @@ body {
   will-change: height, opacity;
 }
 
-
 .intro-content {
   margin: auto 0;
   width: 100%;
 }
 
-/* Intro Hero Fade In Animation */
 @keyframes heroFadeIn {
   from {
     opacity: 0;
@@ -621,7 +599,6 @@ body {
   line-height: 1.65;
 }
 
-/* Button Component */
 .button-group {
   display: flex;
   flex-wrap: wrap;
@@ -663,14 +640,12 @@ body {
   color: var(--text-main);
 }
 
-/* About Section */
 .about-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 3.5rem;
 }
-
 
 .about-content {
   flex: 1 1 0;
@@ -688,8 +663,6 @@ body {
   margin-bottom: 0;
 }
 
-
-/* Skills Section */
 .skills-wrapper {
   width: 100%;
 }
@@ -765,7 +738,6 @@ body {
   background-color: var(--bg-subtle);
 }
 
-/* Education Section */
 .education-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -827,7 +799,6 @@ body {
   line-height: 1.6;
 }
 
-/* Projects Section */
 .projects-grid {
   display: flex;
   flex-direction: column;
@@ -917,7 +888,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Contact Section */
 .contact-intro {
   color: var(--text-muted);
   font-size: 1rem;
@@ -1002,7 +972,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Footer */
 .footer {
   border-top: 1px solid var(--border-color);
   background-color: var(--bg-color);
@@ -1046,7 +1015,6 @@ body {
   color: var(--text-main);
 }
 
-/* Responsive adjustments */
 @media (min-width: 1440px) {
 
   :root,
